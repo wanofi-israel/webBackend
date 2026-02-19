@@ -47,5 +47,6 @@ const start = async () => {
   await connectDB(process.env.MONGO_URI);
   app.listen(PORT, console.log(`server is listening on port ${PORT}..`));
 };
-
+console.log("authRoutes:", authRoutes);
+console.log("jobsRoutes:", jobsRoutes);
 start();

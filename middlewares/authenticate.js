@@ -9,7 +9,7 @@ const authenticate = (req, res, next) => {
 
   const token = authorization.split(" ")[1];
   try {
-    const validate = jwt.verify(token,"JWTSECRET");
+    const validate = jwt.verify(token, process.env.JWT_SECRET);
 
     req.user={userId:validate.userId}
     console.log(validate);
