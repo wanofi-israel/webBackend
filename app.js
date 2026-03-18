@@ -11,6 +11,8 @@ const userJobsRoutes = require("./routes/userJob");
 const userNewsRoutes = require("./routes/userNews");
 const businessCardRoutes = require("./routes/businessCard");
 const userbusinessCardRoutes = require("./routes/userBusinessCard");
+const galleryRoutes = require("./routes/gallery");
+const userGalleryRoutes = require("./routes/userGallery");
 const { connectDB } = require("./db/connect");
 const { errorHandler } = require("./middlewares/errorHandler");
 const { authenticate } = require("./middlewares/authenticate");
@@ -37,16 +39,18 @@ app.use("/api/v1/news", authenticate, newsRoutes);
 app.use("/api/v1/businessCard", authenticate, businessCardRoutes);
 app.use("/api/v1/user/businessCard", userbusinessCardRoutes);
 app.use("/api/v1/usernews", userNewsRoutes);
+app.use("/api/v1/gallery",authenticate,galleryRoutes);
+app.use("/api/v1/user/gallery",userGalleryRoutes);
 
 app.get("/", (req, res) => {
   res.send("jobs api");
 });
 
-// app.use(errorHandler)
+app.use(errorHandler)
 const start = async () => {
   await connectDB(process.env.MONGO_URI);
   app.listen(PORT, console.log(`server is listening on port ${PORT}..`));
 };
-console.log("authRoutes:", authRoutes);
-console.log("jobsRoutes:", jobsRoutes);
+// console.log("authRoutes:", authRoutes);
+// console.log("jobsRoutes:", jobsRoutes);
 start();
