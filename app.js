@@ -13,6 +13,7 @@ const businessCardRoutes = require("./routes/businessCard");
 const userbusinessCardRoutes = require("./routes/userBusinessCard");
 const galleryRoutes = require("./routes/gallery");
 const userGalleryRoutes = require("./routes/userGallery");
+const contactRoutes = require("./routes/contact");
 const { connectDB } = require("./db/connect");
 const { errorHandler } = require("./middlewares/errorHandler");
 const { authenticate } = require("./middlewares/authenticate");
@@ -33,6 +34,7 @@ app.use(
   }),
 );
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/contact", contactRoutes);
 app.use("/api/v1/jobs", authenticate, jobsRoutes);
 app.use("/api/v1/userjobs", userJobsRoutes);
 app.use("/api/v1/news", authenticate, newsRoutes);

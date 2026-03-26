@@ -8,10 +8,22 @@ const postGallery=async (req,res)=>{
     
 }
 const getAllGallery=async (req,res)=>{
-        const gallery=await galleryModel.find({})
 
-        return res.status(200).json({data:gallery,msg:"get all galley successful"})
-    
+    //     const page = parseInt(req.query.offset) || 1;
+//   const limit = parseInt(req.query.limit) || 10;
+// const skip = (page - 1) * limit;
+// const totalCount=await galleryModel.countDocuments({})
+//         const gallery=await galleryModel.find({}).sort("-createdAt").skip(skip).limit(10)
+
+//         return res.status(200).json({count:totalCount,page,
+//     limit,
+//     totalPages: Math.ceil(totalCount / limit),
+//     hasNextPage: page < Math.ceil(totalCount / limit),
+//     hasPrevPage: page > 1,gallery})
+
+  const gallery=await galleryModel.find({})
+
+        return res.status(200).json({data:gallery,msg:"get all galley successful"})    
 }
 
 const getSingleGallery=async (req,res)=>{

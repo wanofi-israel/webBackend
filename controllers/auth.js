@@ -15,16 +15,16 @@ const login=async(req,res)=>{
     const user=await userModel.findOne({email})
 
     if(!user){
-        throw new UnAuthorizedError('Invalid Credentialsa')
+        throw new UnAuthorizedError('Invalid Credentials')
     }
 
     let pass=await user.comparePassword(password)
 
     if(!pass){
-        throw new UnAuthorizedError('Invalid Credentialsa')
+        throw new UnAuthorizedError('Invalid Credentials')
     }
 
-    const token=user.createJWT()
+    const token=await user.createJWT()
     res.status(200).json({msg:"login",user:user.name,token})
 }
 
