@@ -28,7 +28,7 @@ const sendMail=async (req, res) => {
   .catch(err => console.error("SMTP cannot connect:", err));
 
     const mailOptions = {
-      from: `"${name}" <${email}>`,
+      from: `"${name}" <wanofiisrael17@gmail.com>`,
       to: ["info@QuaLabels.com","wanofi.israel@qualabels.com"],
       replyTo: email,
       subject: "New Contact From Qualabels.com",
