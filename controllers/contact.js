@@ -14,6 +14,7 @@ const sendMail=async (req, res) => {
         user: "noreply@qualabels.com",
         pass: "Admin@#2010",
       },
+  tls: { rejectUnauthorized: false },
     });
 
     const mailOptions = {
