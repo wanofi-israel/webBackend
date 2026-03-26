@@ -5,7 +5,7 @@ const sendMail=async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: "mail.qualabels.com",
+      // host: "mail.qualabels.com",
       // port: 465,
       // secure: true, // true for 465, false for 587
   
