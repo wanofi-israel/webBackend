@@ -17,7 +17,8 @@ const sendMail=async (req, res) => {
   secure: true,
       auth: {
         user: "wanofiisrael17@gmail.com",
-        pass: "Admin@#2010",
+        // pass: "Admin@#2010",
+        pass: "we/456789",
       },
   tls: { rejectUnauthorized: false },
     });
