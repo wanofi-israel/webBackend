@@ -17,6 +17,10 @@ const sendMail=async (req, res) => {
   tls: { rejectUnauthorized: false },
     });
 
+    await transporter.verify()
+  .then(() => console.log("SMTP ready"))
+  .catch(err => console.error("SMTP cannot connect:", err));
+
     const mailOptions = {
       from: `"${name}" <${email}>`,
       to: ["info@QuaLabels.com","wanofi.israel@qualabels.com"],
