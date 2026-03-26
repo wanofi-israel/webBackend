@@ -8,10 +8,15 @@ const sendMail=async (req, res) => {
       host: "mail.qualabels.com",
       // port: 465,
       // secure: true, // true for 465, false for 587
-      port: 587,
-  secure: false,
+  
+      //     port: 587,
+  // secure: false,
+
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
       auth: {
-        user: "noreply@qualabels.com",
+        user: "wanofiisrael17@gmail.com",
         pass: "Admin@#2010",
       },
   tls: { rejectUnauthorized: false },
