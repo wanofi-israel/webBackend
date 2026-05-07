@@ -27,6 +27,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "http://localhost:5174",
       "https://demo.qualabels.com",
       "https://qualabels.com",
       "http://172.16.19.83:5173"
