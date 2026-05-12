@@ -27,7 +27,7 @@ const {position,location}=req.query
     }
     const totalCount=await newsModel.countDocuments(filter)
     result=newsModel.find(filter)
-    const news=await result.select("headline summary image createdAt").sort("-createdAt").skip(skip).limit(3)
+    const news=await result.select("headline summary image createdAt").sort("-createdAt").skip(skip).limit(limit)
 
     if(!news){
         throw new NotFoundError('No News was Found')
