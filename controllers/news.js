@@ -14,7 +14,7 @@ const getAllNews=async(req,res)=>{
 
     const user=req.user
     const page = parseInt(req.query.offset) || 1;
-  const limit = parseInt(req.query.limit) || 10;
+  const limit = parseInt(req.query.limit) || 3;
 const {position,location}=req.query
   const skip = (page - 1) * limit;
     let filter={}
@@ -27,7 +27,7 @@ const {position,location}=req.query
     }
     const totalCount=await newsModel.countDocuments(filter)
     result=newsModel.find(filter)
-    const news=await result.select("headline summary image createdAt").sort("-createdAt").skip(skip).limit(10)
+    const news=await result.select("headline summary image createdAt").sort("-createdAt").skip(skip).limit(3)
 
     if(!news){
         throw new NotFoundError('No News was Found')
